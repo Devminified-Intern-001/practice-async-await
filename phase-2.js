@@ -57,14 +57,21 @@ function liftWeights(timeLeft) {
 
 // refactor this function to handle Promises using async/await instead of
   // .then and .catch
-function workout(totalTime) {
+async function workout(totalTime) {
   stretch(totalTime)
-    .then(timeLeftAfterStretching => runOnTreadmill(timeLeftAfterStretching))
-    .then(timeLeftAfterRunning => liftWeights(timeLeftAfterRunning))
-    .then(res => console.log(`done working out with ${res/1000} seconds left`))
-    .catch(err => console.log('Error: ', err));
+
+  //.catch(err => console.log('Error: ', err));
+  let li = await (runOnTreadmill(timeLeft));
+    //let lin = await (timeLeftAfterRunning => liftWeights(timeLeftAfterRunning))
+    //(res => console.log(`done working out with ${res/1000} seconds left`))
+    //.catch(err => console.log('Error: ', err));
+}
+async function newas() {
+  const nes = await workout(1500)
+  
 }
 
+newas();
 
 /* ============================ TEST YOUR CODE ============================
 
