@@ -67,7 +67,7 @@ async function workout(totalTime) {
     //.catch(err => console.log('Error: ', err));
 }
 async function newas() {
-  const nes = await workout(1500)
+  const nes = await workout(500)
   
 }
 
