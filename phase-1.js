@@ -3,7 +3,7 @@ function stretch() {
     setTimeout(() => {
       console.log("done stretching");
       resolve();
-    }, 1000);
+    }, 2000);
   });
 }
 
@@ -12,7 +12,7 @@ function runOnTreadmill() {
     setTimeout(() => {
       console.log("done running on treadmill");
       resolve();
-    }, 500);
+    }, 3000);
   });
 }
 
@@ -21,19 +21,23 @@ function liftWeights() {
     setTimeout(() => {
       console.log("done lifting weights");
       resolve();
-    }, 2000);
+    }, 4000);
   });
 }
-
 // refactor this function to handle Promises using async/await instead of
   // .then and .catch
-function workout() {
-  stretch()
-    .then(runOnTreadmill)
-    .then(liftWeights)
-    .then(() => console.log("done working out"))
-    .catch((err) => console.log(err));
+async function workout() {
+   const sw = await stretch()
+  .catch(err => console.log('Error: ', err));
+    const rw = await runOnTreadmill()
+    const lw = await liftWeights()
+   
 }
+async function ne() {
+  const nw = await workout()
+  console.log("done working out");
+}
+
 
 /* ============================ TEST YOUR CODE ============================
 
@@ -42,7 +46,7 @@ output.
 */
 
 
-workout();
+ne();
   // should print out the following:
     // done stretching
     // done running on treadmill
