@@ -24,10 +24,10 @@ function stretch(timeLeft) {
 
 function runOnTreadmill(timeLeft) {
   return new Promise((resolve, reject) => {
-    if (timeLeft < 500) {
+    if (timeLeft < 1500) {
       reject('you dont have enough time to run on treadmill')
     } else {
-      timeLeft -= 500;
+      timeLeft -= 1500;
 
       setTimeout(() => {
         console.log('done running on treadmill');
@@ -66,10 +66,17 @@ async function workout(totalTime) {
   catch(error){
     console.log(error)
   }
+  let tr
+  try{
+    tr =await runOnTreadmill(totalTime)
+  }
+  catch(error){
+    console.log(error)
+  }
 
 }
 async function newas() {
-  const nes = await workout(11500)
+  const nes = await workout(1000)
   
 }
 
