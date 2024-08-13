@@ -41,7 +41,7 @@ function runOnTreadmill(timeLeft) {
 
 function liftWeights(timeLeft) {
   return new Promise((resolve, reject) => {
-    if (timeLeft < 2000) {
+    if (timeLeft < 3000) {
       reject('you dont have enough time to lift weights')
     } else {
       timeLeft -= 2000
@@ -73,10 +73,17 @@ async function workout(totalTime) {
   catch(error){
     console.log(error)
   }
+  let lw
+  try{
+    lw =await liftWeights(totalTime)
+  }
+  catch(error){
+    console.log(error)
+  }
 
 }
 async function newas() {
-  const nes = await workout(1000)
+  const nes = await workout(2000)
   
 }
 
