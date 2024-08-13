@@ -49,7 +49,7 @@ function liftWeights(timeLeft) {
       setTimeout(() => {
         console.log('done lifting weights');
         resolve(timeLeft)
-      }, 2000)
+      }, 500)
     }
   })
 }
@@ -58,7 +58,6 @@ function liftWeights(timeLeft) {
 // refactor this function to handle Promises using async/await instead of
   // .then and .catch
 async function workout(totalTime) {
-  //stretch(totalTime)
   let nes
   try{
     nes =await stretch(totalTime)
@@ -80,10 +79,11 @@ async function workout(totalTime) {
   catch(error){
     console.log(error)
   }
+  console.log("done working out with 0.5 second left")
 
 }
 async function newas() {
-  const nes = await workout(2000)
+  const nes = await workout(4000)
   
 }
 
